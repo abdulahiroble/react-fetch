@@ -1,7 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+async function App() {
+  try {
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
+    const url = 'https://172.105.66.77:5000/v1/api/portfolio/DU5001781/positions/0'
+    const res = await fetch(url);
+    const data = await res.json();//assuming data is json
+    console.log(data)
+
+  } catch (error) {
+
+  }
   return (
     <div className="App">
       <header className="App-header">
